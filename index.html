@@ -16,28 +16,27 @@
   <meta property="og:url" content="https://www.futurecarve.com">
   <meta property="og:image" content="https://www.futurecarve.com/logo.png">
 
-  <!-- ✅ Styling -->
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fdfdfb;
-      color: #2e2e2e;
+      background-color: #ffffff;
+      color: #333;
     }
 
     header {
-      background: #3b3b3b;
-      color: white;
+      background: #ffffff;
+      color: #007BFF;
       padding: 20px 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      border-bottom: 2px solid #f0f0f0;
     }
 
     header img {
-      height: 100px;
-      width: auto;
+      height: 80px;
       margin-right: 20px;
     }
 
@@ -50,38 +49,38 @@
     }
 
     nav ul li a {
-      color: white;
+      color: #007BFF;
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s;
     }
 
     nav ul li a:hover {
-      color: #f2c94c;
+      color: #cfa32b;
     }
 
     section {
       padding: 60px 40px;
-      background-color: #ffffff;
+      background-color: #f5f7fa;
       margin: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
 
     footer {
-      background: #3b3b3b;
-      color: white;
+      background: #f0f0f0;
+      color: #333;
       text-align: center;
       padding: 20px;
     }
 
     .highlight {
-      color: #cfa32b;
+      color: #007BFF;
       font-weight: bold;
     }
 
     a.button {
-      background-color: #3b3b3b;
+      background-color: #007BFF;
       color: white;
       padding: 10px 20px;
       text-decoration: none;
@@ -89,28 +88,26 @@
       font-weight: bold;
       display: inline-block;
       margin-top: 20px;
-      transition: background 0.3s;
     }
 
     a.button:hover {
       background-color: #cfa32b;
-      color: black;
     }
 
-    /* Light alternate section background colors */
-    #home { background-color: #fff9ec; }
-    #about { background-color: #fefcf4; }
-    #services { background-color: #fffdf8; }
-    #jobseekers { background-color: #ffffff; }
-    #employers { background-color: #fdfbf4; }
-    #contact { background-color: #fffaf0; }
+    /* Individual section backgrounds */
+    #home { background-color: #f0f0f0; }
+    #about { background-color: #f9f9f9; }
+    #services { background-color: #ffffff; }
+    #jobseekers { background-color: #f5f5f5; }
+    #employers { background-color: #f9f9f9; }
+    #contact { background-color: #ffffff; }
   </style>
 </head>
 <body>
   <header>
     <div style="display: flex; align-items: center;">
       <img src="logo.png" alt="FutureCarve Logo" />
-      <h1>FutureCarve Career Solutions</h1>
+      <h1 style="color: #007BFF;">FutureCarve Career Solutions</h1>
     </div>
     <nav>
       <ul>
@@ -125,7 +122,7 @@
   </header>
 
   <section id="home">
-    <h2>Welcome to <span class="highlight">FutureCarve</span></h2>
+    <h2>Welcome to FutureCarve</h2>
     <p>Your path to professional growth starts here. We connect top talent with thriving companies.</p>
     <a href="#contact" class="button">Contact Us</a>
   </section>
