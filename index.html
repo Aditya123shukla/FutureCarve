@@ -2,74 +2,197 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FutureCarve Career Solutions</title>
   <style>
-    /* Global */
-    body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background: #fff; color: #333; }
-    a { text-decoration: none; }
+    /* Reset & Global */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #fff;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     /* Header */
-    header { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid #eee; }
-    header img { height: 100px; width: auto; }
-    nav ul { list-style: none; display: flex; gap: 20px; }
-    nav ul li a { font-weight: bold; color: #007BFF; transition: color .3s; }
-    nav ul li a:hover { color: #cfa32b; }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      height: 60px;
+      width: auto;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+    nav ul li a {
+      font-weight: bold;
+      color: #007BFF;
+      padding: 6px 12px;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #cfa32b;
+    }
 
-    /* Hero Section */
-    .hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 80px 20px; background: #f5f7fa; }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 20px; color: #007BFF; }
-    .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 30px; }
-    .hero .btn { background: #007BFF; color: #fff; padding: 14px 28px; border-radius: 6px; font-size: 1rem; transition: background .3s; }
-    .hero .btn:hover { background: #cfa32b; }
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: #f5f7fa;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #007BFF;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero .btn {
+      background: #007BFF;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 1rem;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+    .hero .btn:hover {
+      background: #cfa32b;
+    }
 
     /* Slider */
-    .slider-container {
-      max-width: 100%;
-      height: 400px;
+    .slider {
+      width: 100%;
+      max-height: 300px;
       overflow: hidden;
       position: relative;
-      margin: 0 auto;
     }
-    .slider-container img {
+    .slides {
+      display: flex;
+      width: 500%;
+      animation: slide 20s infinite;
+    }
+    .slides img {
       width: 100%;
-      height: 100%;
+      height: 300px;
       object-fit: cover;
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
     }
-    .slider-container img.active {
-      display: block;
-      animation: fade 1s ease-in-out;
-    }
-    @keyframes fade {
-      from { opacity: 0.4; }
-      to { opacity: 1; }
+    @keyframes slide {
+      0%, 20% { transform: translateX(0%); }
+      25%, 45% { transform: translateX(-100%); }
+      50%, 70% { transform: translateX(-200%); }
+      75%, 95% { transform: translateX(-300%); }
+      100% { transform: translateX(-400%); }
     }
 
     /* Services */
-    .services { padding: 60px 20px; background: #fff; }
-    .services h2 { text-align: center; margin-bottom: 40px; color: #007BFF; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
-    .card { background: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); text-align: center; }
-    .card h3 { color: #333; margin-bottom: 12px; }
-    .card p { color: #666; font-size: .95rem; }
+    .services {
+      padding: 50px 20px;
+      background: #fff;
+    }
+    .services h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #007BFF;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .card {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+    .card h3 {
+      margin-bottom: 10px;
+    }
 
     /* About & Contact */
-    .section { padding: 60px 20px; max-width: 800px; margin: 0 auto; }
-    .section h2 { text-align: center; margin-bottom: 20px; color: #007BFF; }
-    .section p { line-height: 1.6; }
+    .section {
+      padding: 50px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #007BFF;
+    }
+    .section p {
+      line-height: 1.6;
+      font-size: 1rem;
+    }
 
     /* Footer */
-    footer { background: #f0f0f0; text-align: center; padding: 20px; font-size: .9rem; color: #666; }
-    footer a { color: #007BFF; }
+    footer {
+      background: #f0f0f0;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    footer a {
+      color: #007BFF;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .slides img {
+        height: 200px;
+      }
+      .slider {
+        max-height: 200px;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <img src="logo.png" alt="FutureCarve Logo" />
+    <img src="images/logo.png" alt="FutureCarve Logo" />
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
@@ -80,21 +203,25 @@
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <section id="home" class="hero">
     <h1>Welcome to <span style="color:#cfa32b;">FutureCarve</span></h1>
     <p>Your path to a brighter career starts here. We connect talent with top employers through expert career services.</p>
     <a href="#contact" class="btn">Get Started</a>
   </section>
 
-  <!-- SLIDER SECTION -->
-  <div class="slider-container">
-    <img src="pic1.jpg" class="active" alt="Slide 1" />
-    <img src="pic2.jpg" alt="Slide 2" />
-    <img src="pic3.jpg" alt="Slide 3" />
-    <img src="pic4.jpg" alt="Slide 4" />
-    <img src="pic5.jpg" alt="Slide 5" />
+  <!-- Image Slider -->
+  <div class="slider">
+    <div class="slides">
+      <img src="images/pic1.jpg" alt="Banner 1" />
+      <img src="images/pic2.jpg" alt="Banner 2" />
+      <img src="images/pic3.jpg" alt="Banner 3" />
+      <img src="images/pic4.jpg" alt="Banner 4" />
+      <img src="images/pic5.jpg" alt="Banner 5" />
+    </div>
   </div>
 
+  <!-- Services Section -->
   <section id="services" class="services">
     <h2>Our Specializations</h2>
     <div class="grid">
@@ -117,30 +244,23 @@
     </div>
   </section>
 
+  <!-- About Section -->
   <section id="about" class="section">
     <h2>About Us</h2>
     <p>FutureCarve Career Solutions bridges the gap between ambitious job seekers and leading companies. We offer tailored career guidance, expert resume and interview preparation, and seamless recruitment support to make hiring efficient and effective.</p>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact" class="section">
     <h2>Contact Us</h2>
     <p><strong>Email:</strong> <a href="mailto:info@futurecarve.com">info@futurecarve.com</a><br>
     <strong>Phone:</strong> <a href="tel:+916387383916">+91 6387383916</a></p>
   </section>
 
+  <!-- Footer -->
   <footer>
     &copy; 2025 FutureCarve Career Solutions. Visit us at <a href="https://www.futurecarve.com">futurecarve.com</a>
   </footer>
 
-  <script>
-    let current = 0;
-    const slides = document.querySelectorAll('.slider-container img');
-
-    setInterval(() => {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 3000); // 3 seconds per slide
-  </script>
 </body>
 </html>
