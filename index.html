@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FutureCarve Career Solutions</title>
   <style>
-    html {
-      scroll-behavior: smooth; /* Smooth scrolling */
-    }
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: #fff;
+      background: #f2f2f2;
       color: #333;
     }
     a {
@@ -23,12 +23,11 @@
       color: inherit;
     }
 
-    /* Header */
     header {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 15px 20px;
       border-bottom: 1px solid #eee;
       background: #fff;
@@ -36,7 +35,10 @@
       top: 0;
       z-index: 1000;
     }
-    .logo-link img {
+    header a.logo {
+      display: inline-block;
+    }
+    header img {
       height: 100px;
       width: auto;
     }
@@ -44,6 +46,9 @@
       list-style: none;
       display: flex;
       gap: 15px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     nav ul li a {
       font-weight: bold;
@@ -55,7 +60,6 @@
       color: #cfa32b;
     }
 
-    /* Hero */
     .hero {
       text-align: center;
       padding: 60px 20px;
@@ -86,44 +90,39 @@
       background: #cfa32b;
     }
 
-    /* Slider */
     .slider {
       width: 100%;
-      max-height: 300px;
+      max-height: 400px;
       overflow: hidden;
       position: relative;
     }
     .slides {
       display: flex;
       width: 500%;
-      animation: slide 40s infinite linear;
+      transition: transform 1s ease-in-out;
     }
     .slides img {
       width: 100%;
-      height: 300px;
+      height: 400px;
       object-fit: cover;
     }
-    .slider-controls {
+    .slider-buttons {
       position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background: rgba(0, 0, 0, 0.4);
-      color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      user-select: none;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
     }
-    @keyframes slide {
-      0%, 20% { transform: translateX(0%); }
-      25%, 45% { transform: translateX(-100%); }
-      50%, 70% { transform: translateX(-200%); }
-      75%, 95% { transform: translateX(-300%); }
-      100% { transform: translateX(-400%); }
+    .slider-buttons button {
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      cursor: pointer;
+      border-radius: 4px;
     }
 
-    /* Services */
     .services {
       padding: 50px 20px;
       background: #fff;
@@ -151,11 +150,13 @@
       margin-bottom: 10px;
     }
 
-    /* About & Contact */
     .section {
       padding: 50px 20px;
       max-width: 800px;
       margin: auto;
+      background: #fff;
+      margin-top: 20px;
+      border-radius: 10px;
     }
     .section h2 {
       text-align: center;
@@ -167,26 +168,19 @@
       font-size: 1rem;
     }
 
-    /* Footer */
     footer {
       background: #f0f0f0;
       text-align: center;
       padding: 20px;
       font-size: 0.9rem;
       color: #666;
+      margin-top: 20px;
     }
     footer a {
       color: #007BFF;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        margin-top: 10px;
-      }
       .hero h1 {
         font-size: 1.5rem;
       }
@@ -194,10 +188,10 @@
         font-size: 1rem;
       }
       .slides img {
-        height: 200px;
+        height: 250px;
       }
       .slider {
-        max-height: 200px;
+        max-height: 250px;
       }
     }
   </style>
@@ -206,7 +200,9 @@
 
   <!-- Header -->
   <header>
-    <a href="#home" class="logo-link"><img src="images/logo_2.png" alt="FutureCarve Logo" /></a>
+    <a href="#home" class="logo">
+      <img src="images/logo_2.png" alt="FutureCarve Logo" />
+    </a>
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
@@ -233,7 +229,10 @@
       <img src="images/pic4.jpg" alt="Banner 4" />
       <img src="images/pic5.jpg" alt="Banner 5" />
     </div>
-    <div class="slider-controls" id="toggleSlider">Pause</div>
+    <div class="slider-buttons">
+      <button onclick="playSlider()">Play</button>
+      <button onclick="pauseSlider()">Pause</button>
+    </div>
   </div>
 
   <!-- Services Section -->
@@ -277,22 +276,35 @@
     &copy; 2025 FutureCarve Career Solutions. Visit us at <a href="https://www.futurecarve.com">futurecarve.com</a>
   </footer>
 
-  <!-- JS for play/pause -->
+  <!-- JavaScript for slider -->
   <script>
+    let slideIndex = 0;
+    let sliderInterval;
     const slides = document.getElementById('slides');
-    const toggleBtn = document.getElementById('toggleSlider');
-    let isPaused = false;
+    const totalSlides = slides.children.length;
 
-    toggleBtn.addEventListener('click', () => {
-      if (isPaused) {
-        slides.style.animationPlayState = 'running';
-        toggleBtn.textContent = 'Pause';
-      } else {
-        slides.style.animationPlayState = 'paused';
-        toggleBtn.textContent = 'Play';
+    function showSlide(index) {
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+      slideIndex = (slideIndex + 1) % totalSlides;
+      showSlide(slideIndex);
+    }
+
+    function playSlider() {
+      if (!sliderInterval) {
+        sliderInterval = setInterval(nextSlide, 5000); // slower speed
       }
-      isPaused = !isPaused;
-    });
+    }
+
+    function pauseSlider() {
+      clearInterval(sliderInterval);
+      sliderInterval = null;
+    }
+
+    // Start the slider by default
+    playSlider();
   </script>
 
 </body>
