@@ -48,15 +48,15 @@ nav ul li a:hover {
 }
 
 .logo img {
-  height: 80px;
+  height: 120px;
   width: auto;
   cursor: pointer;
 }
 
 .logo {
-  background-color: #ff6f00;
+  background-color:#ffffff;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 50%;
 }
 
 .hero {
