@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FutureCarve Career Solutions</title>
+  <meta name="description" content="FutureCarve Career Solutions connects job seekers with top employers through expert recruitment and career services." />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
     * {
@@ -21,8 +22,6 @@
       text-decoration: none;
       color: inherit;
     }
-
-    /* Header */
     header {
       display: flex;
       align-items: center;
@@ -57,8 +56,6 @@
     nav ul li a:hover {
       color: #cfa32b;
     }
-
-    /* Hero */
     .hero {
       text-align: center;
       padding: 60px 20px;
@@ -88,8 +85,6 @@
     .hero .btn:hover {
       background: #cfa32b;
     }
-
-    /* Swiper Slider */
     .swiper {
       width: 100%;
       height: 250px;
@@ -99,13 +94,12 @@
       height: 100%;
       object-fit: cover;
     }
-
-    /* Services */
-    .services {
+    .services, .section {
       padding: 50px 20px;
-      background: #fff;
+      max-width: 1100px;
+      margin: auto;
     }
-    .services h2 {
+    .services h2, .section h2 {
       text-align: center;
       margin-bottom: 40px;
       color: #007BFF;
@@ -114,8 +108,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      max-width: 1100px;
-      margin: auto;
     }
     .card {
       background: #f9f9f9;
@@ -127,24 +119,6 @@
     .card h3 {
       margin-bottom: 10px;
     }
-
-    /* About & Contact */
-    .section {
-      padding: 50px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    .section h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #007BFF;
-    }
-    .section p {
-      line-height: 1.6;
-      font-size: 1rem;
-    }
-
-    /* Footer */
     footer {
       background: #f0f0f0;
       text-align: center;
@@ -155,8 +129,6 @@
     footer a {
       color: #007BFF;
     }
-
-    /* Responsive */
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
@@ -177,13 +149,13 @@
   </style>
 </head>
 <body>
-
-  <!-- Header -->
   <header>
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#jobseekers">Job Seekers</a></li>
+        <li><a href="#employers">Employers</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -193,29 +165,22 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section id="home" class="hero">
     <h1>Welcome to <span style="color:#cfa32b;">FutureCarve</span></h1>
     <p>Your path to a brighter career starts here. We connect talent with top employers through expert career services.</p>
     <a href="#contact" class="btn">Get Started</a>
   </section>
 
-  <!-- Swiper Slider -->
   <div class="swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide"><img src="images/pic1.jpg" alt="Slide 1" /></div>
       <div class="swiper-slide"><img src="images/pic2.jpg" alt="Slide 2" /></div>
       <div class="swiper-slide"><img src="images/pic3.jpg" alt="Slide 3" /></div>
-      <div class="swiper-slide"><img src="images/pic4.jpg" alt="Slide 4" /></div>
-      <div class="swiper-slide"><img src="images/pic5.jpg" alt="Slide 5" /></div>
     </div>
-
-    <!-- Navigation Arrows -->
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
   </div>
 
-  <!-- Services Section -->
   <section id="services" class="services">
     <h2>Our Specializations</h2>
     <div class="grid">
@@ -238,25 +203,31 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="section">
-    <h2>About Us</h2>
-    <p>FutureCarve Career Solutions bridges the gap between ambitious job seekers and leading companies. We offer tailored career guidance, expert resume and interview preparation, and seamless recruitment support to make hiring efficient and effective.</p>
+  <section id="jobseekers" class="section">
+    <h2>Job Seekers</h2>
+    <p>We help job seekers find opportunities that align with their career goals. Our support includes resume writing, interview coaching, job matching, and more.</p>
   </section>
 
-  <!-- Contact Section -->
+  <section id="employers" class="section">
+    <h2>Employers</h2>
+    <p>Partner with us for efficient and strategic hiring. We provide recruitment process outsourcing, candidate screening, and staffing support tailored to your needs.</p>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <p>FutureCarve bridges the gap between ambitious professionals and top employers. With services designed for both individuals and organizations, we bring career dreams to life through expert recruitment and personalized support.</p>
+  </section>
+
   <section id="contact" class="section">
     <h2>Contact Us</h2>
     <p><strong>Email:</strong> <a href="mailto:info@futurecarve.com">info@futurecarve.com</a><br>
     <strong>Phone:</strong> <a href="tel:+916387383916">+91 6387383916</a></p>
   </section>
 
-  <!-- Footer -->
   <footer>
     &copy; 2025 FutureCarve Career Solutions. Visit us at <a href="https://www.futurecarve.com">futurecarve.com</a>
   </footer>
 
-  <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     const swiper = new Swiper('.swiper', {
