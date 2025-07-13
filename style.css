@@ -54,10 +54,11 @@ nav ul li a:hover {
 }
 
 .logo {
-  background-color:#ffffff;
+  background-color: #e0e0e0; /* light grey */
   padding: 10px;
-  border-radius: 50%;
+  border-radius: 8px;
 }
+
 
 .hero {
   text-align: center;
