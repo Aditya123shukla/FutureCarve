@@ -21,7 +21,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 20px;
+  padding: 12px 20px;
   background: #2e2e2e;
   color: white;
   border-bottom: 1px solid #444;
@@ -30,6 +30,22 @@ header {
   z-index: 1000;
 }
 
+/* Logo fix */
+.logo-container {
+  display: flex;
+  align-items: center;
+  background-color: #e0e0e0;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.logo-container img {
+  height: 60px;
+  width: auto;
+  cursor: pointer;
+}
+
+/* Navigation */
 nav ul {
   list-style: none;
   display: flex;
@@ -37,8 +53,9 @@ nav ul {
 }
 
 nav ul li a {
-  font-weight: bold;
+  font-weight: 500;
   color: white;
+  font-size: 16px;
   padding: 6px 12px;
   transition: color 0.3s ease;
 }
@@ -47,19 +64,7 @@ nav ul li a:hover {
   color: #ff6f00;
 }
 
-.logo img {
-  height: 90px;
-  width: auto;
-  cursor: pointer;
-}
-
-.logo {
-  background-color: #e0e0e0; /* light grey */
-  padding: 10px;
-  border-radius: 8px;
-}
-
-
+/* Hero Section */
 .hero {
   text-align: center;
   padding: 60px 20px;
@@ -94,9 +99,10 @@ nav ul li a:hover {
   background: #ff6f00;
 }
 
+/* Swiper Carousel */
 .swiper {
   width: 100%;
-  height: 250px;
+  height: 350px;
 }
 
 .swiper-slide img {
@@ -105,6 +111,18 @@ nav ul li a:hover {
   object-fit: cover;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ff6f00;
+  transition: color 0.3s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #212121;
+}
+
+/* Sections */
 .services, .section {
   padding: 50px 20px;
   max-width: 1100px;
@@ -136,6 +154,7 @@ nav ul li a:hover {
   margin-bottom: 10px;
 }
 
+/* Footer */
 footer {
   background: #212121;
   text-align: center;
@@ -148,7 +167,14 @@ footer a {
   color: #ff6f00;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
   nav ul {
     flex-direction: column;
     align-items: flex-start;
@@ -165,18 +191,10 @@ footer a {
   }
 
   .swiper {
-    height: 180px;
+    height: 200px;
   }
-}
 
-/* Swiper navigation arrows */
-.swiper-button-next,
-.swiper-button-prev {
-  color: #ff6f00;
-  transition: color 0.3s;
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  color: #212121;
+  .logo-container img {
+    height: 50px;
+  }
 }
